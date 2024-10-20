@@ -3,7 +3,6 @@ name: Build
 on:
   push:
 
-
 jobs:
   build:
     runs-on: macos-latest
@@ -24,7 +23,10 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
       - name: Build CLI
-        run: cargo run --bin library-loader-cli --release
+        run: cargo build --bin library-loader-cli --release
 
       - name: Buiid GUI
-        run: cargo run --bin library-loader-gui --release
+        run: cargo build --bin library-loader-gui --release
+
+      - name: tree
+        run: tree target/release
