@@ -31,5 +31,10 @@ jobs:
       - name: Buiid GUI
         run: cargo build --bin library-loader-gui --release
 
-      - name: tree
-        run: tree target/release
+      - name: Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: library-loader
+          path: |
+            target/release/library-loader-cli
+            target/release/library-loader-gui
