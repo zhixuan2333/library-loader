@@ -32,7 +32,7 @@ jobs:
         run: cargo build --bin library-loader-gui --release
 
       - name: Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: library-loader
           path: |
