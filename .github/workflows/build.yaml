@@ -21,6 +21,9 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      
+      - name: Install dependencies
+        run: brew install gtk+3 atk gdk-pixbuf pango adwaita-icon-theme jpeg
 
       - name: Build CLI
         run: cargo build --bin library-loader-cli --release
